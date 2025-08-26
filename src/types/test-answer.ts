@@ -1,20 +1,22 @@
 export type TestAnswer = {
    id: number,
-   name: string,
+   nome: string,
    email: string,
-   answers: {
-      experience: string
-      deliverables: string
-      skills: string
-      pressure: string
-      deadlines: string
-      availability: string
-      communication: string
-      collaboration: string
-      values: string
-      adaptation: string
+   perguntas: {
+      experiencia: string
+      entrega: string
+      habilidade: string
+
+      disponibilidade: string
+      prazos: string
+      pressao: string
+
+      valores: string
+      colaboracao: string
+      adaptacao: string
+      comunicacao: string
    },
    score: number,
-   classification: 'Fit Altíssimo' | 'Fit Aprovado' | 'Fit Questionável' | 'Fit Fora do Perfil'
+   classificacao: 'Fit Altíssimo' | 'Fit Aprovado' | 'Fit Questionável' | 'Fit Fora do Perfil'
    createdAt: Date
 }

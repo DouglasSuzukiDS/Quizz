@@ -1,3 +1,27 @@
 {
-   "candidates": []
+  "candidates": [
+    {
+      "id": "b0b7",
+      "data": {
+        "id": 0,
+        "nome": "",
+        "email": "",
+        "perguntas": {
+          "experiencia": "",
+          "entrega": "",
+          "habilidade": "",
+          "disponibilidade": "",
+          "prazos": "",
+          "pressao": "",
+          "valores": "",
+          "colaboracao": "",
+          "adaptacao": "",
+          "comunicacao": ""
+        },
+        "score": 0,
+        "classificacao": "Fit Altíssimo",
+        "createdAt": "2025-08-26T04:34:23.759Z"
+      }
+    }
+  ]
 }

@@ -5,12 +5,12 @@ export const performanceQuestions = [
       options: ["Baixa", "Média", "Alta", "Excelente"],
    },
    {
-      id: "entregas",
+      id: "entrega",
       label: "Como avalia as entregas realizadas?",
       options: ["Abaixo do esperado", "Dentro do esperado", "Acima do esperado", "Excepcional"],
    },
    {
-      id: "habilidades",
+      id: "habilidade",
       label: "Como avalia as habilidades técnicas?",
       options: ["Insuficiente", "Adequada", "Boa", "Ótima"],
    },

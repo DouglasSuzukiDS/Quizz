@@ -3,7 +3,7 @@ import { Button } from "./ui/button"
 import { useUser } from "@/store/useUser"
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "./ui/form"
 import { useForm } from "react-hook-form"
-import { FormFieldTextItem } from "./form-field-item"
+import { FormFieldTextItem } from "./form-field-text-item"
 import { useAnswers } from "@/store/useAnswers"
 import { useStep } from "@/store/useStep"
 import { ButtonsForm } from "./buttons-form"
@@ -34,7 +34,7 @@ export const Signup = () => {
 
          setAnswers({
             ...answer,
-            name: nameField,
+            nome: nameField,
             email: emailField
          })
 
@@ -44,9 +44,9 @@ export const Signup = () => {
 
    return (
       <div className="min-w-1/2 max-w-1/2">
-         <h1>Faça um breve cadastro</h1>
+         <h1 className="mb-4">Antes de começarmos, forneça os seguintes dados: </h1>
 
-         <div className="w-full border ">
+         <div className="flex flex-col gap-4 p-4 w-full border-gradient-legal">
             {/* <form onSubmit={handleSubmit(onSubmit)}>
                <label htmlFor="name">Nome</label>
                <input id="name" {...register("name")} />
@@ -58,9 +58,9 @@ export const Signup = () => {
             </form> */}
 
             <Form {...form}>
-               <FormFieldTextItem nameField="name" form={form} />
+               <FormFieldTextItem label="Nome" nameField="name" form={form} />
 
-               <FormFieldTextItem nameField="email" form={form} />
+               <FormFieldTextItem label="Email" nameField="email" form={form} />
 
                {/* <div className="flex justify-end gap-4">
                   {step > 0 &&
@@ -76,6 +76,7 @@ export const Signup = () => {
                </div> */}
 
                <ButtonsForm
+                  onSubmit={form.handleSubmit(onSubmit)}
                   disabled={form.watch("name") !== "" && form.watch("email") !== "" ? false : true}
                />
             </Form>

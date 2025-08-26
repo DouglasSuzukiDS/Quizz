@@ -9,24 +9,15 @@ import { FormFieldRadioItem } from "./form-field-radio-item"
 import { RadioGroup } from "@radix-ui/react-radio-group"
 import { RadioGroupItem } from "./ui/radio-group"
 import { Label } from "./ui/label"
-import { performanceQuestions } from "@/utils/questions"
+import { energyQuestions } from "@/utils/questions"
 import { useAnswers } from "@/store/useAnswers"
 import { useEffect } from "react"
 
-export const PerformanceQuestionsForm = () => {
+export const EnergyQuestionsForm = () => {
    const { step, prevStep, nextStep } = useStep()
    const { answer, setAnswers } = useAnswers()
 
-   const experience = performanceQuestions.find(q => q.id === 'experiencia')?.options || []
-   const entrega = performanceQuestions.find(q => q.id === 'entrega')?.options || []
-   const habilidade = performanceQuestions.find(q => q.id === 'habilidade')?.options || []
-
-   // console.log(experience)
-   // console.log(entrega)
-   // console.log(habilidade)
-
-   // type FormFields = 'experiencia' | 'entrega' | 'habilidade'
-   type FormFields = typeof performanceQuestions[number]['id']
+   type FormFields = typeof energyQuestions[number]['id']
 
    const forms = useForm({
       defaultValues: {
@@ -37,7 +28,7 @@ export const PerformanceQuestionsForm = () => {
    })
 
    const defaultValues = Object.fromEntries(
-      performanceQuestions.map(q => [q.id, ""])
+      energyQuestions.map(q => [q.id, ""])
    )
 
    const form = useForm({
@@ -60,15 +51,19 @@ export const PerformanceQuestionsForm = () => {
       nextStep()
    }
 
+   useEffect(() => {
+      console.log(answer)
+   }, [answer])
+
    return (
       <div className="w-full md:max-w-1/2">
          <div className="flex flex-col gap-4 p-4 w-full border-gradient-legal">
             <h2 className="text-center text-gray">
-               Perguntas sobre a Performance - <span className="font-bold">Etapa {step}/3</span>
+               Perguntas sobre a Energia - <span className="font-bold">Etapa {step}/3</span>
             </h2>
 
             <Form {...form}>
-               {/* {performanceQuestions.map(question => (
+               {/* {energyQuestions.map(question => (
                   <RadioGroup className="flex flex-col gap-2" id="">
                      <h1>{question.label}</h1>
 
@@ -81,7 +76,7 @@ export const PerformanceQuestionsForm = () => {
                   </RadioGroup>
                ))} */}
 
-               {performanceQuestions.map(question => (
+               {energyQuestions.map(question => (
                   <FormField
                      key={question.id}
                      name={question.id as FormFields}

@@ -9,22 +9,24 @@ type Answer = {
 export const useAnswers = create<Answer>((set) => ({
    answer: {
       id: 0,
-      name: "",
+      nome: "",
       email: "",
-      answers: {
-         experience: "",
-         deliverables: "",
-         skills: "",
-         pressure: "",
-         deadlines: "",
-         availability: "",
-         communication: "",
-         collaboration: "",
-         values: "",
-         adaptation: ""
+      perguntas: {
+         experiencia: "",
+         entrega: "",
+         habilidade: "",
+
+         disponibilidade: "",
+         prazos: "",
+         pressao: "",
+
+         valores: "",
+         colaboracao: "",
+         adaptacao: "",
+         comunicacao: ""
       },
       score: 0,
-      classification: 'Fit Altíssimo',
+      classificacao: 'Fit Altíssimo',
       createdAt: new Date(),
    },
 

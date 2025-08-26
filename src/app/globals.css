@@ -7,9 +7,22 @@
   background-image: linear-gradient(45deg, hsl(250 96% 58%) 0%, hsl(237 98% 37%) 100%);
 }
 
+.border-gradient-legal {
+  border: 2px solid transparent;
+  border-radius: 8px;
+  background-image:
+    linear-gradient(white, white),
+    /* cor de fundo interna */
+    linear-gradient(45deg, hsl(250 96% 58%) 0%, hsl(237 98% 37%) 100%);
+  /* gradiente da borda */
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+}
+
 @theme {
   /* --gradient-legal: linear-gradient(45deg, hsl(250 96% 58%) 0%, hsl(237 98% 37%) 100%); */
   --color-light: #FAFCFD;
+  --color-gray: #64748B;
 }
 
 @theme inline {
@@ -52,8 +65,12 @@
   --radius-xl: calc(var(--radius) + 4px);
 
   --shadow-glow: 0 0 40px hsl(250 96% 58% / .4);
+  --ring-glow: 0 0 40px hsl(250 96% 58% / .4);
 
   --gradient-legal: linear-gradient(45deg, hsl(250 96% 58%) 0%, hsl(237 98% 37%) 100%);
+
+  --color-light-blue: hsl(250 96% 58%);
+  --color-dark-blue: hsl(237 98% 37%);
 }
 
 :root {
