@@ -13,29 +13,22 @@ import { cultureQuestions } from "@/utils/questions"
 import { useAnswers } from "@/store/useAnswers"
 import { useEffect } from "react"
 import next from "next"
+import { useUser } from "@/store/useUser"
+import { UserAnswers } from "@/types/user-answers"
+import { sumScore } from "@/utils/sum-score"
+import { userClassification } from "@/utils/classification"
 
 export const CultureQuestionsForm = () => {
    const { step, prevStep, nextStep } = useStep()
-   const { answer, setAnswers } = useAnswers()
+   const { name, email } = useUser()
+   const { answers, setAnswers } = useAnswers()
 
    const experience = cultureQuestions.find(q => q.id === 'experiencia')?.options || []
    const entrega = cultureQuestions.find(q => q.id === 'entrega')?.options || []
    const habilidade = cultureQuestions.find(q => q.id === 'habilidade')?.options || []
 
-   // console.log(experience)
-   // console.log(entrega)
-   // console.log(habilidade)
-
-   // type FormFields = 'experiencia' | 'entrega' | 'habilidade'
    type FormFields = typeof cultureQuestions[number]['id']
 
-   const forms = useForm({
-      defaultValues: {
-         experiencia: '',
-         entrega: '',
-         habilidade: ''
-      }
-   })
 
    const defaultValues = Object.fromEntries(
       cultureQuestions.map(q => [q.id, ""])
@@ -46,24 +39,48 @@ export const CultureQuestionsForm = () => {
    })
 
    const onSubmit = async () => {
-      // await api.post('/', { data: { testAnswerMock } })
-      //    .then(res => console.log(res.data))
-      //    .catch(err => console.error(err))
-      // prevStep()
-      setAnswers({
-         ...answer,
-         perguntas: {
-            ...answer.perguntas,
-            ...form.getValues()
-         }
-      })
+      const newAnswers = {
+         ...answers,
+         ...form.getValues()
+      }
 
-      nextStep()
+      const userScore = sumScore(newAnswers)
+      setAnswers(newAnswers)
+
+      const userAnswers: UserAnswers = {
+         user: {
+            name,
+            email
+         },
+         answers: {
+            ...answers,
+            ...form.getValues()
+         },
+         score: userScore,
+         classification: userClassification(userScore),
+         createdAt: new Date()
+      }
+
+      console.log(userAnswers)
+
+      console.log(answers)
+
+      await api.post('/', {
+         userAnswers
+      })
+         .then(res => console.log(res.data))
+         .catch(err => console.error(err))
    }
 
    useEffect(() => {
-      console.log(answer)
-   }, [answer])
+      console.log(answers)
+   }, [answers])
+
+
+   useEffect(() => {
+      console.log(name, email)
+   }, [name, email])
+
 
    return (
       <div className="w-full md:max-w-1/2">
@@ -108,7 +125,7 @@ export const CultureQuestionsForm = () => {
 
                                     {question.options.map(option => (
                                        <div className="flex gap-2" key={option}>
-                                          <RadioGroupItem value={option} className="accent-dark-blue" />
+                                          <RadioGroupItem id={option} value={option} className="" />
 
                                           <Label htmlFor={option}>{option}</Label>
                                        </div>

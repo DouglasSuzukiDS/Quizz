@@ -1,19 +1,26 @@
 export const testAnswerMock = {
-   name: "João Silva",
-   email: "joao.silva@email.com",
-   answers: {
-      experience: "5 anos de experiência em desenvolvimento web.",
-      deliverables: "Entrega de projetos dentro do prazo.",
-      skills: "JavaScript, TypeScript, React, Node.js",
-      pressure: "Lida bem com situações de pressão.",
-      deadlines: "Sempre cumpre os prazos estabelecidos.",
-      availability: "Disponível para início imediato.",
-      communication: "Comunicação clara e objetiva.",
-      collaboration: "Trabalho em equipe eficiente.",
-      values: "Comprometimento, ética e transparência.",
-      adaptation: "Adapta-se rapidamente a mudanças."
-   },
-   score: 92,
-   classification: "Fit Altíssimo",
-   createdAt: new Date()
+   id: "72bd",
+   userAnswers: {
+      user: {
+         name: "Jane Doe",
+         email: "jane.doe@email.com"
+      },
+      answers: {
+         experience: "Baixa",
+         deliverables: "Abaixo do esperado",
+         skills: "Insuficiente",
+         availability: "Baixa",
+         deadlines: "Sempre atrasa",
+         pressure: "Mal",
+         values: "Não",
+         collaboration: "Baixa",
+         adaptation: "Difícil",
+         communication: "Ruim",
+         expecience: "Baixa"
+      },
+      score: 0,
+      classification: "Fit Fora do Perfil",
+      createdAt: "2025-08-26T21:16:49.436Z"
+   }
+
 }

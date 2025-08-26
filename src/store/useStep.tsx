@@ -7,7 +7,7 @@ type Step = {
 }
 
 export const useStep = create<Step>((set, get) => ({
-   step: 3,
+   step: 0,
 
    nextStep: () => {
       const next = get().step + 1

@@ -13,18 +13,6 @@ export const ButtonsForm = ({ onSubmit, disabled }: Props) => {
    const { step, prevStep, nextStep } = useStep()
    const { answer, setAnswers } = useAnswers()
 
-   const handleSubmit = async () => {
-      await api.post('/', {
-         data: {
-            ...answer
-         }
-      })
-         .then(res => console.log(res.data))
-
-         .catch(err => console.error(err))
-      console.log(answer)
-   }
-
    return (
       <div className="w-full flex justify-center md:justify-end gap-4 border border-red-600">
          {step >= 1 &&
@@ -44,7 +32,7 @@ export const ButtonsForm = ({ onSubmit, disabled }: Props) => {
             <Button
                className="w-1/2 md:w-auto bg-gradient-legal duration-700  hover:opacity-75 cursor-pointer"
                disabled={disabled}
-               onClick={handleSubmit}>Enviar</Button>
+               onClick={onSubmit}>Enviar</Button>
          }
       </div>
    )

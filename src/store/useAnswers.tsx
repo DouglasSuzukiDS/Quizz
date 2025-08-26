@@ -1,34 +1,26 @@
-import { TestAnswer } from "@/types/test-answer";
+import { Answers } from "@/types/answers";
 import { create } from "zustand";
 
-type Answer = {
-   answer: TestAnswer
-   setAnswers: (answer: TestAnswer) => void
-};
+type AnswersResponse = {
+   answers: Answers
+   setAnswers: (answers: Answers) => void
+}
 
-export const useAnswers = create<Answer>((set) => ({
-   answer: {
-      id: 0,
-      nome: "",
-      email: "",
-      perguntas: {
-         experiencia: "",
-         entrega: "",
-         habilidade: "",
+export const useAnswers = create<AnswersResponse>((set) => ({
+   answers: {
+      experience: "",
+      deliverables: "",
+      skills: "",
 
-         disponibilidade: "",
-         prazos: "",
-         pressao: "",
+      availability: "",
+      deadlines: "",
+      pressure: "",
 
-         valores: "",
-         colaboracao: "",
-         adaptacao: "",
-         comunicacao: ""
-      },
-      score: 0,
-      classificacao: 'Fit Altíssimo',
-      createdAt: new Date(),
+      values: "",
+      collaboration: "",
+      adaptation: "",
+      communication: "",
    },
 
-   setAnswers: (answer) => set({ answer }),
+   setAnswers: (answers) => set({ answers }),
 }));

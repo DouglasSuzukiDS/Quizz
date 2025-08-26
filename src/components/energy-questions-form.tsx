@@ -12,20 +12,14 @@ import { Label } from "./ui/label"
 import { energyQuestions } from "@/utils/questions"
 import { useAnswers } from "@/store/useAnswers"
 import { useEffect } from "react"
+import { useUser } from "@/store/useUser"
 
 export const EnergyQuestionsForm = () => {
    const { step, prevStep, nextStep } = useStep()
-   const { answer, setAnswers } = useAnswers()
+   const { name, email } = useUser()
+   const { answers, setAnswers } = useAnswers()
 
    type FormFields = typeof energyQuestions[number]['id']
-
-   const forms = useForm({
-      defaultValues: {
-         experiencia: '',
-         entrega: '',
-         habilidade: ''
-      }
-   })
 
    const defaultValues = Object.fromEntries(
       energyQuestions.map(q => [q.id, ""])
@@ -41,19 +35,20 @@ export const EnergyQuestionsForm = () => {
       //    .catch(err => console.error(err))
       // prevStep()
       setAnswers({
-         ...answer,
-         perguntas: {
-            ...answer.perguntas,
-            ...form.getValues()
-         }
+         ...answers,
+         ...form.getValues()
       })
 
       nextStep()
    }
 
    useEffect(() => {
-      console.log(answer)
-   }, [answer])
+      console.log(answers)
+   }, [answers])
+
+   useEffect(() => {
+      console.log(name, email)
+   }, [name, email])
 
    return (
       <div className="w-full md:max-w-1/2">
@@ -96,9 +91,9 @@ export const EnergyQuestionsForm = () => {
 
                                  {question.options.map(option => (
                                     <div className="flex gap-2" key={option}>
-                                       <RadioGroupItem value={option} className="accent-dark-blue" />
+                                       <RadioGroupItem id={option} value={option} className="" />
 
-                                       <Label>{option}</Label>
+                                       <Label htmlFor={option}>{option}</Label>
                                     </div>
                                  ))}
 

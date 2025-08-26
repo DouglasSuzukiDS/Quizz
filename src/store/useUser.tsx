@@ -1,12 +1,6 @@
+import { User } from "@/types/user"
 import { create } from "zustand"
 
-type User = {
-   name: string
-   setName: (name: string) => void
-
-   email: string
-   setEmail: (email: string) => void
-}
 
 export const useUser = create<User>()((set, get) => ({
    name: '',

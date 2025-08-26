@@ -12,29 +12,19 @@ import { Label } from "./ui/label"
 import { performanceQuestions } from "@/utils/questions"
 import { useAnswers } from "@/store/useAnswers"
 import { useEffect } from "react"
+import { useUser } from "@/store/useUser"
 
 export const PerformanceQuestionsForm = () => {
    const { step, prevStep, nextStep } = useStep()
-   const { answer, setAnswers } = useAnswers()
+   const {name, email} = useUser()
+   const { answers, setAnswers } = useAnswers()
 
    const experience = performanceQuestions.find(q => q.id === 'experiencia')?.options || []
    const entrega = performanceQuestions.find(q => q.id === 'entrega')?.options || []
    const habilidade = performanceQuestions.find(q => q.id === 'habilidade')?.options || []
 
-   // console.log(experience)
-   // console.log(entrega)
-   // console.log(habilidade)
-
-   // type FormFields = 'experiencia' | 'entrega' | 'habilidade'
    type FormFields = typeof performanceQuestions[number]['id']
 
-   const forms = useForm({
-      defaultValues: {
-         experiencia: '',
-         entrega: '',
-         habilidade: ''
-      }
-   })
 
    const defaultValues = Object.fromEntries(
       performanceQuestions.map(q => [q.id, ""])
@@ -45,20 +35,17 @@ export const PerformanceQuestionsForm = () => {
    })
 
    const onSubmit = async () => {
-      // await api.post('/', { data: { testAnswerMock } })
-      //    .then(res => console.log(res.data))
-      //    .catch(err => console.error(err))
-      // prevStep()
       setAnswers({
-         ...answer,
-         perguntas: {
-            ...answer.perguntas,
-            ...form.getValues()
-         }
+         ...answers,
+         ...form.getValues()
       })
 
       nextStep()
    }
+
+   useEffect(() => {
+      console.log(name, email)
+   }, [name, email])
 
    return (
       <div className="w-full md:max-w-1/2">
@@ -68,18 +55,6 @@ export const PerformanceQuestionsForm = () => {
             </h2>
 
             <Form {...form}>
-               {/* {performanceQuestions.map(question => (
-                  <RadioGroup className="flex flex-col gap-2" id="">
-                     <h1>{question.label}</h1>
-
-                     {question.options.map(option => (
-                        <div className="flex gap-2">
-                           <RadioGroupItem value={option} />
-                           <Label>{option}</Label>
-                        </div>
-                     ))}
-                  </RadioGroup>
-               ))} */}
 
                {performanceQuestions.map(question => (
                   <FormField
@@ -101,9 +76,9 @@ export const PerformanceQuestionsForm = () => {
 
                                  {question.options.map(option => (
                                     <div className="flex gap-2" key={option}>
-                                       <RadioGroupItem value={option} className="accent-dark-blue" />
+                                       <RadioGroupItem id={option} value={option} className="" />
 
-                                       <Label>{option}</Label>
+                                       <Label htmlFor={option}>{option}</Label>
                                     </div>
                                  ))}
 
