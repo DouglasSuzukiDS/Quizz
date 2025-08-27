@@ -45,7 +45,7 @@ export const Signup = () => {
    }, [])
 
    return (
-      <div className="w-full md:max-w-1/2">
+      <div className="w-full md:max-w-1/3">
          <h1 className="text-gray mb-4">Antes de começarmos, forneça os seguintes dados: </h1>
 
          <div className="flex flex-col gap-4 p-4 w-full border-gradient-legal">

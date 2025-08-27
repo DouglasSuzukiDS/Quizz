@@ -48,7 +48,7 @@ export const UserTable = () => {
    }, [])
 
    return (
-      <div className="flex justify-center flex-1">
+      <div className="w-full flex justify-center items-center flex-col flex-1 md:max-w-2/3">
          {answers.length >= 1 &&
             <div className="w-full md:w-2/3 flex flex-col gap-4">
                <div className="flex gap-4 justify-center md:justify-end">

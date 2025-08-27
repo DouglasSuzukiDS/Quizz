@@ -11,7 +11,7 @@ export const Quizz = () => {
 
    return (
       <div className="w-full h-screen flex justify-center items-center flex-col px-4 py-8 bg-light">
-         <h1 className="text-2xl md:text-3xl text-center text-dark-blue font-bold mb-4">Formulário FitScore {step}</h1>
+         <h1 className="text-2xl md:text-3xl text-center text-dark-blue font-bold mb-4">Formulário FitScore</h1>
 
          {step === 0 && <Signup />}
 

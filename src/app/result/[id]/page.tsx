@@ -2,6 +2,7 @@
 
 import { Button } from "@/components/ui/button"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
+import { useAuthAdmin } from "@/store/useAuthAdmin"
 import { UserAnswer } from "@/types/user-answers"
 import { GetUserById } from "@/utils/get-user-by-id"
 import { useParams, useRouter } from "next/navigation"
@@ -11,12 +12,14 @@ export default function Page() {
    const [user, setUser] = useState<UserAnswer | null>(null)
 
    const { id } = useParams()
+   const { auth } = useAuthAdmin()
+
    const router = useRouter()
 
    useEffect(() => {
       GetUserById(id as string)
          .then(data => {
-            setUser(data)
+            auth ? setUser(data) : router.replace("/")
          }).catch(() => {
             router.replace("/")
          })

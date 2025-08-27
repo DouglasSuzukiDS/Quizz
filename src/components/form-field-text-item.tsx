@@ -5,9 +5,10 @@ type Props = {
    label: string
    nameField: string
    form: any
+   passwordField?: boolean
 }
 
-export const FormFieldTextItem = ({ label, nameField, form }: Props) => {
+export const FormFieldTextItem = ({ label, nameField, form, passwordField }: Props) => {
    return (
       <FormField
          name={nameField}
@@ -22,7 +23,9 @@ export const FormFieldTextItem = ({ label, nameField, form }: Props) => {
                   <Input
                      className="border border-light-blue focus-visible:ring-dark-blue focus-visible:ring-2 focus-visible:border-none "
                      id={nameField}
-                     {...field} />
+                     {...field}
+                     type={passwordField ? "password" : "text"}
+                  />
                </FormControl>
             </FormItem>
          )}

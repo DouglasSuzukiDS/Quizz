@@ -72,7 +72,7 @@ export const CultureQuestionsForm = () => {
       }
 
       // await api.post('/', { mockData })
-      await api.post('/', { userAnswers })
+      await api.post('/candidates', { userAnswers })
          .then((res) => {
             setUserAnswers(res.data)
 
