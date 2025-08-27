@@ -110,7 +110,7 @@ export const UserTable = () => {
 
                            <TableCell>{answer.userAnswers.user.email}</TableCell>
 
-                           <TableCell className="">{answer.userAnswers.score}</TableCell>
+                           <TableCell className="">{answer.userAnswers.score.toFixed(1)}</TableCell>
 
                            <TableCell className="">{answer.userAnswers.classification}</TableCell>
                         </TableRow>

@@ -95,6 +95,78 @@
         "classification": "Fit Fora do Perfil",
         "createdAt": "2025-08-27T02:04:43.593Z"
       }
+    },
+    {
+      "id": "bae9",
+      "userAnswers": {
+        "user": {
+          "name": "Nick",
+          "email": "nick@email.com"
+        },
+        "answers": {
+          "experience": "Excelente",
+          "deliverables": "Excepcional",
+          "skills": "Adequada",
+          "availability": "Alta",
+          "deadlines": "Às vezes atrasa",
+          "pressure": "Razoavelmente",
+          "values": "Pouco",
+          "collaboration": "Alta",
+          "adaptation": "Boa",
+          "communication": "Regular"
+        },
+        "score": 56.3,
+        "classification": "Fit Questionável",
+        "createdAt": "2025-08-27T05:16:59.228Z"
+      }
+    },
+    {
+      "id": "295f",
+      "userAnswers": {
+        "user": {
+          "name": "aaa",
+          "email": "aa@email.com"
+        },
+        "answers": {
+          "experience": "Média",
+          "deliverables": "Dentro do esperado",
+          "skills": "Adequada",
+          "availability": "Média",
+          "deadlines": "Entrega no prazo",
+          "pressure": "Razoavelmente",
+          "values": "Pouco",
+          "collaboration": "Média",
+          "adaptation": "Razoável",
+          "communication": "Regular"
+        },
+        "score": 35.53846153846154,
+        "classification": "Fit Fora do Perfil",
+        "createdAt": "2025-08-27T05:40:29.714Z"
+      }
+    },
+    {
+      "id": "fc5c",
+      "userAnswers": {
+        "user": {
+          "name": "aaa",
+          "email": "aa@email.com"
+        },
+        "answers": {
+          "experience": "Média",
+          "deliverables": "Dentro do esperado",
+          "skills": "Adequada",
+          "availability": "Média",
+          "deadlines": "Entrega no prazo",
+          "pressure": "Razoavelmente",
+          "values": "Pouco",
+          "collaboration": "Média",
+          "adaptation": "Razoável",
+          "communication": "Regular"
+        },
+        "score": 36.3,
+        "classification": "Fit Fora do Perfil",
+        "createdAt": "2025-08-27T05:41:10.695Z"
+      }
     }
   ]
 }

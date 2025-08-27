@@ -52,7 +52,7 @@ export default function Page() {
             className="w-full md:max-w-1/2 flex flex-col justify-center items-center gap-4 p-8 rounded bg-light">
             <h1 className="text-2xl text-sky-500 font-bold">RESULTADO</h1>
 
-            <p className="text-light-blue font-bold">Seu Score foi de {score}</p>
+            <p className="text-light-blue font-bold">Seu Score foi de {score.toFixed(1)}</p>
 
             {phase()}
          </div>

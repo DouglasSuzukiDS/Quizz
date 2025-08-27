@@ -1,7 +1,7 @@
 'use client'
 
 import { Button } from "@/components/ui/button"
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
+import { DropdownMenu, DropdownMenuContent, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import { UserAnswer } from "@/types/user-answers"
 import { GetUserById } from "@/utils/get-user-by-id"
 import { useParams, useRouter } from "next/navigation"
@@ -14,9 +14,12 @@ export default function Page() {
    const router = useRouter()
 
    useEffect(() => {
-      GetUserById(id as string).then(data => {
-         setUser(data)
-      })
+      GetUserById(id as string)
+         .then(data => {
+            setUser(data)
+         }).catch(() => {
+            router.replace("/")
+         })
    }, [id])
 
    return (

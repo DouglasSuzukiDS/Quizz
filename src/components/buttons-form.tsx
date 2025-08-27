@@ -14,7 +14,7 @@ export const ButtonsForm = ({ onSubmit, disabled }: Props) => {
       <div className="w-full flex justify-center md:justify-end gap-4">
          {step >= 1 &&
             <Button
-               variant="ghost"
+               variant="secondary"
                className="w-1/2 md:flex-1 duration-700 hover:opacity-75 cursor-pointer"
                onClick={prevStep}>Voltar</Button>
          }

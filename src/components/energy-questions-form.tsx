@@ -43,38 +43,40 @@ export const EnergyQuestionsForm = () => {
             </h2>
 
             <Form {...form}>
-               {energyQuestions.map(question => (
-                  <FormField
-                     key={question.id}
-                     name={question.id as FormFields}
-                     control={form.control}
-                     render={({ field }) => (
-                        <FormItem
-                           key={question.id}
-                           className="mb-2" >
-                           <FormControl>
-                              <RadioGroup
-                                 key={question.id}
-                                 onValueChange={field.onChange}
-                                 id={question.id}
-                                 className="flex flex-col gap-2">
+               <div className="flex flex-col gap-2 md:gap-4 flex-1 max-h-80 overflow-auto">
+                  {energyQuestions.map(question => (
+                     <FormField
+                        key={question.id}
+                        name={question.id as FormFields}
+                        control={form.control}
+                        render={({ field }) => (
+                           <FormItem
+                              key={question.id}
+                              className="mb-2" >
+                              <FormControl>
+                                 <RadioGroup
+                                    key={question.id}
+                                    onValueChange={field.onChange}
+                                    id={question.id}
+                                    className="flex flex-col gap-2">
 
-                                 <FormLabel className="text-dark-blue font-bold text-center md:text-left">{question.label}</FormLabel>
+                                    <FormLabel className="text-dark-blue font-bold text-center md:text-left">{question.label}</FormLabel>
 
-                                 {question.options.map(option => (
-                                    <div className="flex gap-2" key={option}>
-                                       <RadioGroupItem id={option} value={option} className="" />
+                                    {question.options.map(option => (
+                                       <div className="flex gap-2" key={option}>
+                                          <RadioGroupItem id={option} value={option} className="" />
 
-                                       <Label htmlFor={option}>{option}</Label>
-                                    </div>
-                                 ))}
+                                          <Label htmlFor={option}>{option}</Label>
+                                       </div>
+                                    ))}
 
-                              </RadioGroup>
-                           </FormControl>
-                        </FormItem>
-                     )}
-                  />
-               ))}
+                                 </RadioGroup>
+                              </FormControl>
+                           </FormItem>
+                        )}
+                     />
+                  ))}
+               </div>
 
                <ButtonsForm
                   onSubmit={onSubmit}
