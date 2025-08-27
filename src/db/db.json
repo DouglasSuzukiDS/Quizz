@@ -95,54 +95,6 @@
         "classification": "Fit Fora do Perfil",
         "createdAt": "2025-08-27T02:04:43.593Z"
       }
-    },
-    {
-      "id": "bae9",
-      "userAnswers": {
-        "user": {
-          "name": "Nick",
-          "email": "nick@email.com"
-        },
-        "answers": {
-          "experience": "Excelente",
-          "deliverables": "Excepcional",
-          "skills": "Adequada",
-          "availability": "Alta",
-          "deadlines": "Às vezes atrasa",
-          "pressure": "Razoavelmente",
-          "values": "Pouco",
-          "collaboration": "Alta",
-          "adaptation": "Boa",
-          "communication": "Regular"
-        },
-        "score": 56.3,
-        "classification": "Fit Questionável",
-        "createdAt": "2025-08-27T05:16:59.228Z"
-      }
-    },
-    {
-      "id": "0992",
-      "userAnswers": {
-        "user": {
-          "name": "John Doe",
-          "email": "johndoe@email.com"
-        },
-        "answers": {
-          "experience": "Média",
-          "deliverables": "Acima do esperado",
-          "skills": "Adequada",
-          "availability": "Alta",
-          "deadlines": "Entrega no prazo",
-          "pressure": "Bem",
-          "values": "Bastante",
-          "collaboration": "Média",
-          "adaptation": "Difícil",
-          "communication": "Regular"
-        },
-        "score": 46.2,
-        "classification": "Fit Questionável",
-        "createdAt": "2025-08-27T16:05:51.668Z"
-      }
     }
   ],
   "admin": [
