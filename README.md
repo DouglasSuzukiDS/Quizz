@@ -1,4 +1,3 @@
-
 # Quizz - Plataforma de Avaliação
 
 > Projeto desenvolvido em NextJS, TailwindCSS, ShadCN UI, Zustand, Zod e Json-Server.
@@ -57,7 +56,7 @@ Este projeto é uma plataforma de avaliação dinâmica, onde usuários responde
 
 2. Inicie o mock backend (json-server):
 	 ```js
-	 nrpm run server
+	 npm run server
 	 ```
 
 3. Inicie o servidor Next.js:
@@ -68,6 +67,15 @@ Este projeto é uma plataforma de avaliação dinâmica, onde usuários responde
 4. Acesse [http://localhost:3000](http://localhost:3000) para usar a aplicação.
 
 ---
+
+## 🔐 Login do Administrador
+
+Para acessar o painel administrativo (/admin) e visualizar todos os dados dos candidatos, utilize o login de administrador:
+
+- **Usuário:** quizz@quizz.com
+- **Senha:** quizz
+
+Essas credenciais podem ser alteradas no código conforme necessário. O painel admin permite visualizar, filtrar e as respostas dos candidatos.
 
 ## 💡 Observações e Dicas
 
