@@ -1,7 +1,7 @@
 
-# Quizz - Plataforma de Avaliação Dinâmica
+# Quizz - Plataforma de Avaliação
 
-> Projeto desenvolvido em Next.js, Tailwind CSS, ShadCN UI, Zustand, Zod e Json-Server.
+> Projeto desenvolvido em NextJS, TailwindCSS, ShadCN UI, Zustand, Zod e Json-Server.
 
 ---
 
@@ -13,8 +13,8 @@ Este projeto é uma plataforma de avaliação dinâmica, onde usuários responde
 
 ## 🚀 Tecnologias Utilizadas
 
-- **Next.js**: Framework React para SSR/SSG e rotas de app.
-- **Tailwind CSS**: Utilitários para estilização rápida e responsiva.
+- **NextJS**: Framework React para SSR/SSG e rotas de app.
+- **TailwindCSS**: Utilitários para estilização rápida e responsiva.
 - **ShadCN UI**: Componentes acessíveis e customizáveis (Select, DropdownMenu, Table, etc).
 - **Zustand**: Gerenciamento global de estado, com persistência local.
 - **React Hook Form + Zod**: Gerenciamento e validação dinâmica de formulários/dados.
