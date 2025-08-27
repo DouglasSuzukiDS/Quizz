@@ -15,20 +15,20 @@ export const ButtonsForm = ({ onSubmit, disabled }: Props) => {
          {step >= 1 &&
             <Button
                variant="ghost"
-               className="w-1/2 md:w-auto duration-700 hover:opacity-75 cursor-pointer"
+               className="w-1/2 md:flex-1 duration-700 hover:opacity-75 cursor-pointer"
                onClick={prevStep}>Voltar</Button>
          }
 
          {step >= 0 && step < 3 &&
             <Button
-               className="w-1/2 md:w-auto bg-gradient-legal duration-700  hover:opacity-75 cursor-pointer"
+               className="w-1/2 md:flex-1 bg-gradient-legal duration-700  hover:opacity-75 cursor-pointer"
                disabled={disabled}
                onClick={onSubmit}>Próximo</Button>
          }
 
          {step === 3 &&
             <Button
-               className="w-1/2 md:w-auto bg-gradient-legal duration-700  hover:opacity-75 cursor-pointer"
+               className="w-1/2 md:flex-1 bg-gradient-legal duration-700  hover:opacity-75 cursor-pointer"
                disabled={disabled}
                onClick={onSubmit}>Enviar</Button>
          }

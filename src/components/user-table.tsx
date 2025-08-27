@@ -5,6 +5,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from ".
 import { getUsersAnswers } from "@/utils/get-users-answers"
 import { ClassificationOptions } from "@/types/classification-options"
 import { NotFoundResults } from "./not-found-results"
+import { useRouter } from "next/navigation"
 
 const classificationOptions = [
    "Fit Altíssimo",
@@ -19,6 +20,8 @@ export const UserTable = () => {
    const [answersClone, setAnswersClone] = useState<UserAnswer[]>([])
 
    const [classificationFilter, setClassificationFilter] = useState('Todas')
+
+   const router = useRouter()
 
    const filteredAnswers = (value: ClassificationOptions | 'Todas') => {
       setClassificationFilter(value)
@@ -45,9 +48,9 @@ export const UserTable = () => {
    }, [])
 
    return (
-      <div className="flex-1 ">
+      <div className="flex justify-center flex-1">
          {answers.length >= 1 &&
-            <div className="space-y-4">
+            <div className="w-full md:w-2/3 flex flex-col gap-4">
                <div className="flex gap-4 justify-center md:justify-end">
                   <Select
                      value={classificationFilter}
@@ -97,7 +100,10 @@ export const UserTable = () => {
 
                   <TableBody>
                      {answersClone.map((answer, index) => (
-                        <TableRow key={index}>
+                        <TableRow
+                           key={index}
+                           className="cursor-pointer"
+                           onClick={() => router.push(`/result/${answer.id}`)}>
                            <TableCell className="font-medium">{answer.id}</TableCell>
 
                            <TableCell>{answer.userAnswers.user.name}</TableCell>
