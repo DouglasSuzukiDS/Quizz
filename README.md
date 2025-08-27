@@ -14,13 +14,12 @@ Este projeto é uma plataforma de avaliação dinâmica, onde usuários responde
 ## 🚀 Tecnologias Utilizadas
 
 - **Next.js 15**: Framework React para SSR/SSG e rotas de app.
-- **React 19**: Biblioteca principal de UI.
 - **Tailwind CSS**: Utilitários para estilização rápida e responsiva.
-- **ShadCN UI / Radix UI**: Componentes acessíveis e customizáveis (Select, DropdownMenu, Table, etc).
+- **ShadCN UI**: Componentes acessíveis e customizáveis (Select, DropdownMenu, Table, etc).
 - **Zustand**: Gerenciamento global de estado, com persistência local.
-- **React Hook Form + Zod**: Gerenciamento e validação dinâmica de formulários.
-- **json-server**: Mock backend para persistência e consulta de dados.
-- **axios**: Cliente HTTP para integração com API.
+- **React Hook Form + Zod**: Gerenciamento e validação dinâmica de formulários/dados.
+- **Json-Server**: Mock backend para persistência e consulta de dados.
+- **Axios**: Cliente HTTP para integração com API.
 
 ---
 
