@@ -7,15 +7,25 @@ type UserAnswersState = UserAnswers & {
    setUserAnswers: (userAnswers: UserAnswers) => void
 }
 
-const { name, email } = useUser()
-const { answers } = useAnswers()
-
 export const useUserAnswers = create<UserAnswersState>((set, get) => ({
    user: {
-      name,
-      email,
+      name: '',
+      email: '',
    },
-   answers,
+   answers: {
+      experience: '',
+      deliverables: '',
+      skills: '',
+
+      availability: '',
+      deadlines: '',
+      pressure: '',
+
+      values: '',
+      collaboration: '',
+      adaptation: '',
+      communication: ''
+   },
    setUserAnswers: (userAnswers: UserAnswers) => set({ ...userAnswers }),
    score: 0,
    classification: 'Fit Fora do Perfil',

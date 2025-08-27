@@ -71,6 +71,10 @@
 
   --color-light-blue: hsl(250 96% 58%);
   --color-dark-blue: hsl(237 98% 37%);
+
+  --color-success: hsl(142 76% 36%);
+  --color-warning: hsl(38 92% 50%);
+  --color-primary: hsl(250 96% 58%);
 }
 
 :root {

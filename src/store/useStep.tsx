@@ -13,8 +13,6 @@ export const useStep = create<Step>((set, get) => ({
       const next = get().step + 1
 
       set({ step: next })
-      console.log(get())
-
 
       return next
    },
@@ -23,7 +21,6 @@ export const useStep = create<Step>((set, get) => ({
       const prev = get().step - 1
 
       set({ step: prev })
-      console.log(get())
 
       return prev
    },

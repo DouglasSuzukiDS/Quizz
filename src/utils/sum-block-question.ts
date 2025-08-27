@@ -3,6 +3,7 @@ import { BlockQuestion } from "@/types/block-question"
 
 export const sumBlockQuestions = (blockQuestion: BlockQuestion[], answers: Answers) => {
    let score = 0
+   
    const compareAnsweres = Object.values(answers)
 
    const points = [0, 33, 66, 100]

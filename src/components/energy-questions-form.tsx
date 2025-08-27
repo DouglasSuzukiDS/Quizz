@@ -2,16 +2,13 @@
 
 import { useStep } from "@/store/useStep"
 import { useForm } from "react-hook-form"
-import { api } from "@/utils/api"
 import { Form, FormControl, FormField, FormItem, FormLabel } from "./ui/form"
 import { ButtonsForm } from "./buttons-form"
-import { FormFieldRadioItem } from "./form-field-radio-item"
 import { RadioGroup } from "@radix-ui/react-radio-group"
 import { RadioGroupItem } from "./ui/radio-group"
 import { Label } from "./ui/label"
 import { energyQuestions } from "@/utils/questions"
 import { useAnswers } from "@/store/useAnswers"
-import { useEffect } from "react"
 import { useUser } from "@/store/useUser"
 
 export const EnergyQuestionsForm = () => {
@@ -30,10 +27,6 @@ export const EnergyQuestionsForm = () => {
    })
 
    const onSubmit = async () => {
-      // await api.post('/', { data: { testAnswerMock } })
-      //    .then(res => console.log(res.data))
-      //    .catch(err => console.error(err))
-      // prevStep()
       setAnswers({
          ...answers,
          ...form.getValues()
@@ -41,14 +34,6 @@ export const EnergyQuestionsForm = () => {
 
       nextStep()
    }
-
-   useEffect(() => {
-      console.log(answers)
-   }, [answers])
-
-   useEffect(() => {
-      console.log(name, email)
-   }, [name, email])
 
    return (
       <div className="w-full md:max-w-1/2">
@@ -58,19 +43,6 @@ export const EnergyQuestionsForm = () => {
             </h2>
 
             <Form {...form}>
-               {/* {energyQuestions.map(question => (
-                  <RadioGroup className="flex flex-col gap-2" id="">
-                     <h1>{question.label}</h1>
-
-                     {question.options.map(option => (
-                        <div className="flex gap-2">
-                           <RadioGroupItem value={option} />
-                           <Label>{option}</Label>
-                        </div>
-                     ))}
-                  </RadioGroup>
-               ))} */}
-
                {energyQuestions.map(question => (
                   <FormField
                      key={question.id}
@@ -105,7 +77,6 @@ export const EnergyQuestionsForm = () => {
                ))}
 
                <ButtonsForm
-                  // disabled={form.watch("experiencia") !== "" && form.watch("entrega") !== "" && form.watch("habilidade") !== "" ? false : true}
                   onSubmit={onSubmit}
                   disabled={Object.values(form.watch()).every(value => value !== '') ? false : true}
                />

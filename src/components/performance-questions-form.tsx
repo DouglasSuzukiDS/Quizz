@@ -2,10 +2,8 @@
 
 import { useStep } from "@/store/useStep"
 import { useForm } from "react-hook-form"
-import { api } from "@/utils/api"
 import { Form, FormControl, FormField, FormItem, FormLabel } from "./ui/form"
 import { ButtonsForm } from "./buttons-form"
-import { FormFieldRadioItem } from "./form-field-radio-item"
 import { RadioGroup } from "@radix-ui/react-radio-group"
 import { RadioGroupItem } from "./ui/radio-group"
 import { Label } from "./ui/label"
@@ -15,16 +13,10 @@ import { useEffect } from "react"
 import { useUser } from "@/store/useUser"
 
 export const PerformanceQuestionsForm = () => {
-   const { step, prevStep, nextStep } = useStep()
-   const {name, email} = useUser()
+   const { step, nextStep } = useStep()
    const { answers, setAnswers } = useAnswers()
 
-   const experience = performanceQuestions.find(q => q.id === 'experiencia')?.options || []
-   const entrega = performanceQuestions.find(q => q.id === 'entrega')?.options || []
-   const habilidade = performanceQuestions.find(q => q.id === 'habilidade')?.options || []
-
    type FormFields = typeof performanceQuestions[number]['id']
-
 
    const defaultValues = Object.fromEntries(
       performanceQuestions.map(q => [q.id, ""])
@@ -42,10 +34,6 @@ export const PerformanceQuestionsForm = () => {
 
       nextStep()
    }
-
-   useEffect(() => {
-      console.log(name, email)
-   }, [name, email])
 
    return (
       <div className="w-full md:max-w-1/2">
@@ -90,7 +78,6 @@ export const PerformanceQuestionsForm = () => {
                ))}
 
                <ButtonsForm
-                  // disabled={form.watch("experiencia") !== "" && form.watch("entrega") !== "" && form.watch("habilidade") !== "" ? false : true}
                   onSubmit={onSubmit}
                   disabled={Object.values(form.watch()).every(value => value !== '') ? false : true}
                />

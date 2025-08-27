@@ -1,9 +1,5 @@
 'use client'
 
-import { api } from "@/utils/api"
-import { testAnswerMock } from "@/utils/mock-data"
-import { cultureQuestions, energyQuestions, performanceQuestions } from "@/utils/questions"
-import { useState } from "react"
 import { Signup } from "./signup"
 import { PerformanceQuestionsForm } from "./performance-questions-form"
 import { useStep } from "@/store/useStep"
@@ -12,13 +8,6 @@ import { EnergyQuestionsForm } from "./energy-questions-form"
 
 export const Quizz = () => {
    const { step } = useStep()
-   const [steps, setSteps] = useState(step)
-
-   const handleSubmit = async () => {
-      await api.post('/', { data: { testAnswerMock } })
-         .then(res => console.log(res.data))
-         .catch(err => console.error(err))
-   }
 
    return (
       <div className="w-full h-screen flex justify-center items-center flex-col px-4 py-8 bg-light">

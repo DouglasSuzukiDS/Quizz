@@ -5,30 +5,31 @@ import { useForm } from "react-hook-form"
 import { api } from "@/utils/api"
 import { Form, FormControl, FormField, FormItem, FormLabel } from "./ui/form"
 import { ButtonsForm } from "./buttons-form"
-import { FormFieldRadioItem } from "./form-field-radio-item"
 import { RadioGroup } from "@radix-ui/react-radio-group"
 import { RadioGroupItem } from "./ui/radio-group"
 import { Label } from "./ui/label"
 import { cultureQuestions } from "@/utils/questions"
 import { useAnswers } from "@/store/useAnswers"
-import { useEffect } from "react"
-import next from "next"
 import { useUser } from "@/store/useUser"
-import { UserAnswers } from "@/types/user-answers"
 import { sumScore } from "@/utils/sum-score"
 import { userClassification } from "@/utils/classification"
+import { userAnswersSchema } from "@/schemas/user-answers-schema"
+import { toast } from "sonner"
+import { mockData } from "@/utils/mock-data"
+import { useRouter } from "next/navigation"
+import { useUserAnswers } from "@/store/useUserAnswers"
+import { saveStorage } from "@/utils/save-storage"
+
 
 export const CultureQuestionsForm = () => {
-   const { step, prevStep, nextStep } = useStep()
+   const { step } = useStep()
    const { name, email } = useUser()
    const { answers, setAnswers } = useAnswers()
+   const { setUserAnswers } = useUserAnswers()
 
-   const experience = cultureQuestions.find(q => q.id === 'experiencia')?.options || []
-   const entrega = cultureQuestions.find(q => q.id === 'entrega')?.options || []
-   const habilidade = cultureQuestions.find(q => q.id === 'habilidade')?.options || []
+   const router = useRouter()
 
    type FormFields = typeof cultureQuestions[number]['id']
-
 
    const defaultValues = Object.fromEntries(
       cultureQuestions.map(q => [q.id, ""])
@@ -45,9 +46,10 @@ export const CultureQuestionsForm = () => {
       }
 
       const userScore = sumScore(newAnswers)
+
       setAnswers(newAnswers)
 
-      const userAnswers: UserAnswers = {
+      const userAnswers = {
          user: {
             name,
             email
@@ -59,28 +61,34 @@ export const CultureQuestionsForm = () => {
          score: userScore,
          classification: userClassification(userScore),
          createdAt: new Date()
+
       }
 
-      console.log(userAnswers)
+      const safeData = userAnswersSchema.safeParse(userAnswers)
 
-      console.log(answers)
+      if (!safeData.success) {
+         console.error(safeData.error)
+         return toast.error("Erro ao enviar respostas. Atualise a página e tente novamente.")
+      }
 
-      await api.post('/', {
-         userAnswers
-      })
-         .then(res => console.log(res.data))
+      // await api.post('/', { mockData })
+      await api.post('/', { userAnswers })
+         .then((res) => {
+            setUserAnswers(res.data)
+
+            const score = res.data.userAnswers.score
+            const classification = res.data.userAnswers.classification
+
+            saveStorage('score', { score, classification })
+
+            toast.success("Respostas enviadas com sucesso!")
+
+            router.replace('/result')
+            console.log(res.data)
+         })
          .catch(err => console.error(err))
+
    }
-
-   useEffect(() => {
-      console.log(answers)
-   }, [answers])
-
-
-   useEffect(() => {
-      console.log(name, email)
-   }, [name, email])
-
 
    return (
       <div className="w-full md:max-w-1/2">
@@ -90,19 +98,7 @@ export const CultureQuestionsForm = () => {
             </h2>
 
             <Form {...form}>
-               {/* {cultureQuestions.map(question => (
-                  <RadioGroup className="flex flex-col gap-2" id="">
-                     <h1>{question.label}</h1>
-
-                     {question.options.map(option => (
-                        <div className="flex gap-2">
-                           <RadioGroupItem value={option} />
-                           <Label>{option}</Label>
-                        </div>
-                     ))}
-                  </RadioGroup>
-               ))} */}
-               <div className="flex flex-col gap-2 md:gap-4 flex-1 border max-h-80 overflow-auto">
+               <div className="flex flex-col gap-2 md:gap-4 flex-1 max-h-80 overflow-auto">
                   {cultureQuestions.map(question => (
                      <FormField
                         key={question.id}
@@ -111,7 +107,7 @@ export const CultureQuestionsForm = () => {
                         render={({ field }) => (
                            <FormItem
                               key={question.id}
-                              className="mb-2 border" >
+                              className="mb-2" >
                               <FormControl>
                                  <RadioGroup
                                     key={question.id}
@@ -120,7 +116,7 @@ export const CultureQuestionsForm = () => {
                                     className="flex flex-col gap-2">
 
                                     <FormLabel
-                                       className="w-full text-dark-blue text-center font-bold md:text-left border">
+                                       className="w-full text-dark-blue text-center font-bold md:text-left">
                                        {question.label}</FormLabel>
 
                                     {question.options.map(option => (
@@ -140,7 +136,6 @@ export const CultureQuestionsForm = () => {
                </div>
 
                <ButtonsForm
-                  // disabled={form.watch("experiencia") !== "" && form.watch("entrega") !== "" && form.watch("habilidade") !== "" ? false : true}
                   onSubmit={onSubmit}
                   disabled={Object.values(form.watch()).every(value => value !== '') ? false : true}
                />
