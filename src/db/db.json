@@ -95,12 +95,157 @@
         "classification": "Fit Fora do Perfil",
         "createdAt": "2025-08-27T02:04:43.593Z"
       }
+    },
+    {
+      "id": "7e3c",
+      "userAnswers": {
+        "user": {
+          "name": "AAA",
+          "email": "aa@email.com"
+        },
+        "answers": {
+          "experience": "Alta",
+          "deliverables": "Acima do esperado",
+          "skills": "Boa",
+          "availability": "Alta",
+          "deadlines": "Entrega antes do prazo",
+          "pressure": "Bem",
+          "values": "Totalmente",
+          "collaboration": "Alta",
+          "adaptation": "Razoável",
+          "communication": "Ruim"
+        },
+        "score": 62.9,
+        "classification": "Fit Aprovado",
+        "createdAt": "2025-08-27T17:05:44.572Z"
+      }
+    },
+    {
+      "id": "d526",
+      "userAnswers": {
+        "user": {
+          "name": "aaa",
+          "email": "aa@email.com"
+        },
+        "answers": {
+          "experience": "Excelente",
+          "deliverables": "Excepcional",
+          "skills": "Ótima",
+          "availability": "Total",
+          "deadlines": "Entrega antes do prazo",
+          "pressure": "Muito bem",
+          "values": "Não",
+          "collaboration": "Baixa",
+          "adaptation": "Difícil",
+          "communication": "Ruim"
+        },
+        "score": 60,
+        "classification": "Fit Aprovado",
+        "createdAt": "2025-08-27T17:24:49.149Z"
+      }
+    },
+    {
+      "id": "3ba1",
+      "userAnswers": {
+        "user": {
+          "name": "aaa",
+          "email": "aa@email.com"
+        },
+        "answers": {
+          "experience": "Excelente",
+          "deliverables": "Excepcional",
+          "skills": "Ótima",
+          "availability": "Total",
+          "deadlines": "Entrega antes do prazo",
+          "pressure": "Muito bem",
+          "values": "Não",
+          "collaboration": "Baixa",
+          "adaptation": "Difícil",
+          "communication": "Ruim"
+        },
+        "score": 60,
+        "classification": "Fit Aprovado",
+        "createdAt": "2025-08-27T17:25:10.766Z"
+      }
+    },
+    {
+      "id": "ed27",
+      "userAnswers": {
+        "user": {
+          "name": "aa",
+          "email": "aa@gmail.com"
+        },
+        "answers": {
+          "experience": "Alta",
+          "deliverables": "Dentro do esperado",
+          "skills": "Insuficiente",
+          "availability": "Alta",
+          "deadlines": "Entrega antes do prazo",
+          "pressure": "Bem",
+          "values": "Bastante",
+          "collaboration": "Alta",
+          "adaptation": "Ótima",
+          "communication": "Ruim"
+        },
+        "score": 56.3,
+        "classification": "Fit Questionável",
+        "createdAt": "2025-08-27T17:26:13.225Z"
+      }
+    },
+    {
+      "id": "49db",
+      "userAnswers": {
+        "user": {
+          "name": "aa",
+          "email": "aa@email.com"
+        },
+        "answers": {
+          "experience": "Alta",
+          "deliverables": "Dentro do esperado",
+          "skills": "Adequada",
+          "availability": "Total",
+          "deadlines": "Entrega no prazo",
+          "pressure": "Bem",
+          "values": "Totalmente",
+          "collaboration": "Excelente",
+          "adaptation": "Ótima",
+          "communication": "Boa"
+        },
+        "score": 73,
+        "classification": "Fit Aprovado",
+        "createdAt": "2025-08-27T17:30:36.335Z"
+      }
+    },
+    {
+      "id": "8972",
+      "userAnswers": {
+        "user": {
+          "name": "aaaa",
+          "email": "ss@gmail.com"
+        },
+        "answers": {
+          "experience": "Excelente",
+          "deliverables": "Excepcional",
+          "skills": "Ótima",
+          "availability": "Total",
+          "deadlines": "Entrega antes do prazo",
+          "pressure": "Muito bem",
+          "values": "Pouco",
+          "collaboration": "Excelente",
+          "adaptation": "Difícil",
+          "communication": "Ruim"
+        },
+        "score": 73.3,
+        "classification": "Fit Aprovado",
+        "createdAt": "2025-08-27T17:50:41.512Z"
+      }
     }
   ],
   "admin": [
     {
       "email": "quizz@quizz.com",
-      "password": "quizz"
+      "password": "quizz",
+      "id": "b81f"
     }
   ]
 }
